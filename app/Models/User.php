@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function agendamentos(){
+        return $this->belongsToMany('App\Models\Paciente', 'agendamentos')->withPivot('hora_consulta', 'data_consulta');
+    }
+
 }
