@@ -20,10 +20,9 @@
             {{-- <input type="text" class="form-control" id="paciente_id" placeholder="Nome do paciente"> --}}
             <select required class="form-control" name="paciente_id" id="paciente_id" value="{{ $agendamento->paciente_id??'' }}">
 
+                <option>Selecione um paciente</option>
                 @foreach($pacientes as $p)
-                    <option>Selecione um paciente<option>
                     <option value="{{ $p->id }}">{{ $p->name }}</option>
-
                 @endforeach
 
             </select>
