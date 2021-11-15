@@ -68,3 +68,9 @@ $ php artisan serve
 
 ### OBSERVAÇOES
 não usei docker :(
+
+O usuário que é cadastra quando se roda o seeders é o:
+```bash
+email: joaodobar@medico.com
+senha: 123456879
+```
