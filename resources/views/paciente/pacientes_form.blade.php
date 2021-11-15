@@ -37,6 +37,8 @@
                 <label for="altura">Altura em Cm</label>
                 <input type="number" name="altura" class="form-control" id="altura" placeholder="Altura" value="{{ $paciente->altura??"" }}">
             </div>
+
+            <input type="hidden" name="user_id" value="{{$medico}}">
                 
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>

@@ -20,6 +20,10 @@ class CreatePacientesTable extends Migration
             $table->integer('idade');
             $table->float('altura');
             $table->float('peso');
+
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

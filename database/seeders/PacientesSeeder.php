@@ -19,7 +19,8 @@ class PacientesSeeder extends Seeder
             'cpf' => '12345678910',
             'idade' => 4,
             'altura' => 0.30,
-            'peso' => 4
+            'peso' => 4,
+            'user_id' => 1
         ]);
     }
 }

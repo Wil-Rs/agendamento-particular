@@ -15,6 +15,7 @@ class Paciente extends Model
         'idade',
         'altura',
         'peso',
+        'user_id'
     ];
 
 }
