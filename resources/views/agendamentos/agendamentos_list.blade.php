@@ -2,13 +2,13 @@
 
 @section('content')
     
-<div class="container">
+<div class="container back">
     <div class="row">
-      <div class="col-10">
+      <div class="col-xs-12 col-md-9">
           <h1 class="text-center w-100">Agendamentos</h1>
       </div>
-      <div class="col-2">
-          <a class="btn btn-primary" href="{{ url('agendamentos/novo') }}">Novo Agendamento</a>
+      <div class="col-xs-12 col-md-3">
+          <a class="btn btn-primary d-flex justify-content-center mb-5" href="{{ url('agendamentos/novo') }}">Novo Agendamento</a>
       </div>
   </div>
 

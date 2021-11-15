@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Redirect;
 use App\Models\Paciente;
@@ -17,7 +18,8 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view( 'medicos.list', [ 'user' => $user ] );
     }
 
     /**
@@ -27,7 +29,7 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.register');
     }
 
     /**
@@ -38,7 +40,14 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 'password' => Hash::make('12345678')
+        $user = new User;
+        $all = $request->all();
+        $all['password'] = Hash::make( $request->all()['password'] );
+        $all['password_confirmation'] = $all['password'];
+        $user->create( $all );
+        // dd( $all );
+        return Redirect::to('/medicos');
     }
 
     /**
@@ -60,7 +69,8 @@ class MedicoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail( $id );
+        return view('auth.register', ['medico' => $user]);
     }
 
     /**
@@ -72,7 +82,16 @@ class MedicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail( $id );
+        $up = $request->all();
+        if( $up['password'] ){
+            $up['password'] = Hash::make( $up['password'] );
+            $up['password_confirmation'] = $up['password'];
+        }
+
+        $user->update( $up );
+
+        return Redirect::to( '/medicos' );
     }
 
     /**
@@ -81,8 +100,11 @@ class MedicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail( $id );
+        $user->delete();
+        return Redirect::to( '/medicos' );
     }
 }

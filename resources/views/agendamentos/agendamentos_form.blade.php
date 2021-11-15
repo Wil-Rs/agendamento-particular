@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container back">
 
     <div class="row">
         <h1 class="text-center w-100">Paciente</h1>
@@ -22,7 +22,7 @@
 
                 <option>Selecione um paciente</option>
                 @foreach($pacientes as $p)
-                    <option value="{{ $p->id }}">{{ $p->name }}</option>
+                    <option {{ $agendamento->paciente_id == $p->id ? 'selected' : '' }} value="{{ $p->id }}">{{ $p->name }}</option>
                 @endforeach
 
             </select>

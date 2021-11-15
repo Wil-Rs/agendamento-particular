@@ -12,12 +12,14 @@ use Illuminate\Http\Request;
 class PacienteController extends Controller
 {
     public function pacientes(){
-        $pacientes = Paciente::all();
+        $medico = Auth::user()->id;
+        $pacientes = Paciente::where(['user_id' => $medico])->get();
         return view('paciente.pacientes_list', ['pacientes' => $pacientes]);
     }
 
     public function new(){
-        return view('paciente.pacientes_form');
+        $medico = Auth::user()->id;
+        return view('paciente.pacientes_form',  ['medico' => $medico]);
     }
 
     public function create(Request $request){
@@ -28,8 +30,9 @@ class PacienteController extends Controller
     }
 
     public function edit($id){
+        $medico = Auth::user()->id;
         $paciente = Paciente::findOrFail( $id );
-        return view('paciente.pacientes_form', ['paciente' => $paciente]);
+        return view('paciente.pacientes_form', ['paciente' => $paciente, 'medico' => $medico]);
     }
 
     public function update(Request $request, $id){
