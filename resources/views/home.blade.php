@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="card-header text-center">Opcões</div>
-    <div class="row pt-5">
-        <div class="col-4">
+<div class="container back">
+    <div class="card-header text-center bg-dark text-white">Opcões</div>
+    <div class="row pt-5 ">
+        <div class="col-sg-12 col-md-4 col-lg-4 mb-5 ">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('img/medico.jpg') }}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Médicos</h5>
                   <p class="card-text">Aqui você pode gerenciar todos os médicos da rede.</p>
-                <a class="btn btn-secondary w-100" href="">Médicos</a>
+                <a class="btn btn-secondary w-100" href="{{ url('/medicos') }}">Médicos</a>
                 {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                 </div>
             </div>
             
         </div>
-        <div class="col-4">
+        <div class="col-sg-12 col-md-4 col-lg-4 mb-5">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('img/paciente.jpg') }}" alt="Card image cap">
                 <div class="card-body">
@@ -29,7 +29,7 @@
             
             
         </div>
-        <div class="col-4">
+        <div class="col-sg-12 col-md-4 col-lg-4 mb-5">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('img/agenda.jpg') }}" alt="Card image cap">
                 <div class="card-body">

@@ -18,10 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Consultorio
@@ -32,13 +33,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <a href="{{ url('/home') }}">Inicio</a>
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        
+                        <span class="mr-5 navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url( '/pacientes' ) }}">Pacientes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url( '/medicos' ) }}">Medicos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url( '/agendamentos' ) }}">Agenda</a>
+                            </li>
+                        </span>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -47,11 +59,11 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -80,5 +92,18 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Footer -->
+<footer class="page-footer font-small fixed-bottom footer-dark bg-dark shadow-lg mt-5">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-white py-3">© 2020 Copyright:
+      <a href="https://www.linkedin.com/in/wilian-rodrigues-dos-santos-b74041161/" target="_blank">Desenvolvido por Wil</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
 </body>
 </html>
