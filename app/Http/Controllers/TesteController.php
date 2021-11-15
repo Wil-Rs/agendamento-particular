@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Redirect;
-use App\Models\Paciente;
-use App\Models\Agendamento;
-use App\Models\User;
 
-class AgendamentoController extends Controller
+class TesteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +13,7 @@ class AgendamentoController extends Controller
      */
     public function index()
     {
-        $userLodado = Auth::user()->id;
-        $agendas = User::with('agendamentos')->findOrFail( $userLodado );
-        // return $agendas->toJson();
-        return view('agendamentos.agendamentos_list', ['agendas' => $agendas]);
+        //
     }
 
     /**
@@ -31,9 +23,7 @@ class AgendamentoController extends Controller
      */
     public function create()
     {
-        $pacientes = Paciente::all();
-        $medico = Auth::user();
-        return view('agendamentos.agendamentos_form', ['pacientes' => $pacientes, 'medico' => $medico]);
+        //
     }
 
     /**
@@ -44,9 +34,7 @@ class AgendamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $agendamento = new Agendamento;
-        $agendamento->create( $request->all() );
-        return redirect('/agendamentos');
+        //
     }
 
     /**
@@ -68,12 +56,7 @@ class AgendamentoController extends Controller
      */
     public function edit($id)
     {
-        // $agendamento = Agendamento::where( ['id' => $id] )->get();
-        $agendamento = Agendamento::findOrFail($id);
-        $pacientes = Paciente::all();
-        $medico = Auth::user();
-        // return $agendamento->toJson();
-        return view('agendamentos.agendamentos_form', ['agendamento' => $agendamento, 'medico' => $medico, 'pacientes' => $pacientes]);
+        //
     }
 
     /**
@@ -85,9 +68,7 @@ class AgendamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $agendamento = Agendamento::findOrFail( $id );
-        $agendamento->update( $request->all() );
-        return redirect('/agendamentos');
+        //
     }
 
     /**
@@ -98,8 +79,6 @@ class AgendamentoController extends Controller
      */
     public function destroy($id)
     {
-        $agendamento = Agendamento::findOrFail( $id );
-        $agendamento->delete();
-        return redirect('/agendamentos');
+        //
     }
 }

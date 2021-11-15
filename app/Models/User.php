@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
 
     public function agendamentos(){
-        return $this->belongsToMany('App\Models\Paciente', 'agendamentos')->withPivot('hora_consulta', 'data_consulta');
+        return $this->belongsToMany('App\Models\Paciente', 'agendamentos')->withPivot('id', 'hora_consulta', 'data_consulta');
     }
 
 }

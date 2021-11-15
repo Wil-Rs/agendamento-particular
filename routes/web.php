@@ -21,7 +21,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/agendamentos', 'AgendamentoController@agendamentos');
+Route::get('/agendamentos', 'AgendamentoController@index');
+Route::get('/agendamentos/novo', 'AgendamentoController@create');
+Route::post('/agendamentos/create', 'AgendamentoController@store');
+Route::get('/agendamentos/{id}/edit', 'AgendamentoController@edit');
+Route::post('agendamentos/update/{id}', 'AgendamentoController@update' );
+Route::delete('agendamentos/delete/{id}', 'AgendamentoController@destroy' );
+
+
 Route::get('/pacientes', 'PacienteController@pacientes');
 Route::get('/pacientes/novo', 'PacienteController@new');
 Route::post('/pacientes/create', 'PacienteController@create');

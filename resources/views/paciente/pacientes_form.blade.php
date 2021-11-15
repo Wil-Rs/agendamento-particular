@@ -5,7 +5,7 @@
 <div class="container">
 
     <div class="row">
-        <h1 class="text-center w-100">Novo Usuário</h1>
+        <h1 class="text-center w-100">Paciente</h1>
     </div>
 
     <div class="border p-5">
